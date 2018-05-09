@@ -23,6 +23,8 @@ export default class Edit extends Component {
     // let text = this.state.text;
     this.props.updatePostFn( this.props.id, this.state.text );
     this.props.hideEdit();
+
+    // console.log( typeof this.state.text );
   }
 
   render() {

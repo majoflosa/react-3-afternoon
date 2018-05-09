@@ -24,7 +24,7 @@ class App extends Component {
   componentDidMount() {
     axios.get( 'https://practiceapi.devmountain.com/api/posts' )
       .then( response => {
-        console.log( response.data );
+        // console.log( response.data );
         this.setState({ posts: response.data });
       })
       .catch( () => console.log('Error: Something went wrong with the get request.') );
@@ -37,8 +37,8 @@ class App extends Component {
         this.setState({ posts: response.data });
       })
       .catch( () => console.log(`Could not update post - id: ${id}, text: ${text}`) );
-    // console.log( 'id: ', id );
-    // console.log( 'dataObj.text: ', dataObj.text );
+    // console.log( '{text}: ', {text} );
+    // console.log( 'text: ', text );
   }
 
   deletePost( id ) {
@@ -47,7 +47,7 @@ class App extends Component {
         console.log( 'Post was deleted successfully.' );
         this.setState({ posts: response.data });
       })
-      .catch( () => console.log(`Could not delete post - id: ${id}`) )
+      .catch( () => console.log(`Could not delete post - id: ${id}`) );
   }
 
   createPost( text ) {
@@ -84,17 +84,6 @@ class App extends Component {
           <Compose createPostFn={ this.createPost } />
 
           { displayPosts }
-          { /* posts.map( post => {
-            return (
-              <Post 
-                key={ post.id }
-                text={ post.text } 
-                date={ post.date }
-                updatePostFn={ this.updatePost }
-                id={ post.id }
-              />
-            );
-          }) */ }
           
         </section>
       </div>
